@@ -3,8 +3,7 @@ import updateRepo from "./update-repo.ts";
 
 
 const args = Deno.args;
-
-console.log('here')   
+  
 await createNewReadme(...args);
 updateRepo();
 

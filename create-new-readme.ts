@@ -2,6 +2,7 @@ import {
     writeFileStr,
     readFileStr
   } from "https://deno.land/std/fs/mod.ts";
+import { DEBUG } from "./config.ts";
 
 
 export interface GithubRepo {
@@ -17,6 +18,10 @@ export default async function createNewReadme(...args: string[]): Promise<void> 
     const repoMainTs = args[2];
     const readme = await readFileStr("./README.md");
     let mainTsLink = '';
+
+    if (DEBUG) {
+        console.log(readme)
+    }
     
     if (!repoTitle || !repoLink) {
         console.log("No title or link provided.");
@@ -38,6 +43,10 @@ export default async function createNewReadme(...args: string[]): Promise<void> 
         mainTsLink: mainTsLink,
         author: getAuthor(repoLink),
         githubLink: getGithubLink(repoLink)
+    }
+
+    if (DEBUG) {
+        console.log(githubRepo)
     }
     
     writeNewReadm(concatStrings(readme, githubRepo));
@@ -62,5 +71,9 @@ export default async function createNewReadme(...args: string[]): Promise<void> 
     
     async function writeNewReadm(newReadme: string): Promise<any> {
         await writeFileStr("./README.md", newReadme);
+    }
+
+    if (DEBUG) {
+        console.log(readme)
     }
 }
