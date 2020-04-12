@@ -4,11 +4,10 @@ import updateRepo from "./update-repo.ts";
 
 const args = Deno.args;
 
-if(args[0].includes('update')) {
-    updateRepo();
-} else {
-    createNewReadme(...args);
-}
+async () => {    
+    await createNewReadme(...args);
+    updateRepo();  
+};
 
 
 // README structure if its lost.
