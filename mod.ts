@@ -13,14 +13,14 @@ import {
     writeFileStr,
     readFileStr
   } from "https://deno.land/std/fs/mod.ts";
-export interface GithubRepo {
+interface GithubRepo {
     title: string, 
     link: string, 
     mainTsLink: string, 
     author: string, 
     githubLink: string}
 
-export default async function createNewReadme(...args: string[]): Promise<void> {
+async function createNewReadme(...args: string[]): Promise<void> {
     const repoTitle = args[0];
     const repoLink = args[1];
     const repoMainTs = args[2];
@@ -91,7 +91,7 @@ export default async function createNewReadme(...args: string[]): Promise<void> 
 
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-export default async function updateRepo() {
+async function updateRepo() {
     const branchId = v4.generate();
 
     const forkRepo = ['git', 'clone', 'https://github.com/femave/deno-library.git', 'cd', 'deno-library', 'hub', 'fork'];
