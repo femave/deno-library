@@ -1,11 +1,11 @@
-
 import createNewReadme from "./create-new-readme.ts";
+import updateRepo from "./update-repo.ts";
 
 
 const args = Deno.args;
 
 if(args[0].includes('update')) {
-    // updateRepo();
+    updateRepo();
 } else {
     createNewReadme(...args);
 }
