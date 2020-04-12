@@ -1,6 +1,6 @@
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-async function updateRepo() {
+export default async function updateRepo() {
     const branchId = v4.generate();
 
     const forkRepo = ['git', 'clone', 'https://github.com/femave/deno-library.git', 'cd', 'deno-library', 'hub', 'fork'];

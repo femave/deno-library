@@ -10,13 +10,13 @@ Tryied in windows only!
 ## Install
 
 install command 
-`deno install libin --allow-write --allow-read --allow-run https://raw.githubusercontent.com/femave/libin/master/mod.ts`
+`deno install libin --allow-write --allow-read --allow-run https://raw.githubusercontent.com/femave/deno-library/master/mod.ts`
 
 ## Usage
 
 ```
 Usage:
-    denon [TITLE] [REPOPATH] [TSPATH]*
+    libin [TITLE] [REPOPATH] [TSPATH]*
 
     * optional
 
