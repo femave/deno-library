@@ -1,3 +1,3 @@
 const env = Deno.env();
 
-export const DEBUG = true;
+export const DEBUG = false;

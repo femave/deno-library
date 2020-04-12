@@ -1,33 +1,27 @@
-import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
-export default async function updateRepo() {
-    const branchId = v4.generate();
 
-    const forkRepo = ['git', 'clone', 'https://github.com/femave/deno-library.git', 'cd', 'deno-library', 'hub', 'fork'];
-    const createBranch = ['git', 'branch', branchId];
-    const checkoutBranch = ['git', 'checkout', branchId];
+export default async function updateRepo(branchId: string) {
+    console.log('update repo');
     const gitAdd = ['git', 'add', '.'];
-    const gitCommit = ['git', 'commit', '-', 'm', '=', '"Added new repo to README.md"'];
-    const gitPush = ['git', 'push', 'origin', branchId];
-    const gitPr = ['git', 'request-pull', 'master', 'https://github.com/femave/deno-library.git', 'master'];
+    const gitCommit = ['git', 'commit', '-m', 'Added new repo to README.md'];
+    const gitPush = ['git', 'push', 'origin', `feature_${branchId}`];
+    const currentRevision = ['git', 'rev-parse', 'HEAD'];
+    const gitPr = ['git', 'request-pull'];
     const deleteDir = ['cd', '..', 'rm', '-rf', 'deno-library'];
 
-
-    const p = Deno.run({
-        args: [
-            ...forkRepo,
-            ...createBranch,
-            ...checkoutBranch,
-            ...gitAdd,
-            ...gitCommit,
-            ...gitPush,
-            ...gitPr
-        ],
-        stdout: "piped",
-        stderr: "piped"
-    });
-
-    const { code } = await p.status();
-    console.log(code)
-    Deno.exit(code);
+    const add = Deno.run({ args: [...gitAdd] });
+    if ((await add.status()).code !== 0) {
+        console.log(`Git add failed`);
+        Deno.exit();
+    }
+    const commit = Deno.run({args: [...gitCommit]});
+    if ((await commit.status()).code !== 0) {
+        console.log(`Git commit failed`);
+        Deno.exit();
+    }
+    const push = Deno.run({args: [...gitPush]});
+    if ((await push.status()).code !== 0) {
+        console.log(`Git push failed`);
+        Deno.exit();
+    }
 }

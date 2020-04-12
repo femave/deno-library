@@ -10,7 +10,7 @@ Tryied in windows only!
 ## Install
 
 install command 
-`deno install libin --allow-write --allow-read --allow-run https://raw.githubusercontent.com/femave/deno-library/master/mod.ts`
+`deno install libin --allow-write --allow-read --allow-run --allow-env https://raw.githubusercontent.com/femave/deno-library/master/mod.ts`
 
 ## Usage
 
@@ -31,7 +31,10 @@ IMPORTANT:
 
 ## TODO
 
-- [ ] Create automatic bundle with name mod.ts
+- [ ] Create automatic bundle with name mod.ts.
+- [ ] Accepts js files.
+- [x] Listen when folder was create in create-repo. id: 210294.
+- [ ] Auto pr.
 
 ## Deno TS Library index
 
