@@ -1,9 +1,14 @@
 # Deno .TS from github
 
+## IMPORTANT
+
+This program will fork this project and create a branch to do pr against this main project automatically.
+And add your Deno project to the library!
+
 ## Install
 
-isntall command 
-`deno install cdenon --allow-write --allow-read --allow-run https://raw.githubusercontent.com/femave/live-server-reload/master/mod.ts`
+install command 
+`deno install libin --allow-write --allow-read --allow-run https://raw.githubusercontent.com/femave/libin/master/mod.ts`
 
 ## Usage
 
@@ -22,11 +27,7 @@ IMPORTANT:
     The main .ts should be mod.ts, if not add the main ts to [TSPATH]
 ```
 
-
-
 ## Deno TS Library index
 
-[Repo...](https://raw.githubusercontent.com/femave/live-server-reload/master/mod.ts)
-[Repo2...](https://raw.githubusercontent.com/femave/live-server-reload/master/mod.ts)
-[undefined](undefined)
-url to import or install: undefined
+[live-reload](https://github.com/femave/live-server-reload)
+- Url to import or install: https://github.com/femave/live-server-reload
