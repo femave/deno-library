@@ -29,6 +29,10 @@ IMPORTANT:
     The main .ts should be mod.ts, if not add the main ts to [TSPATH]
 ```
 
+## TODO
+
+- [ ] Create automatic bundle with name mod.ts
+
 ## Deno TS Library index
 
 ---
