@@ -29,5 +29,4 @@ IMPORTANT:
 
 ## Deno TS Library index
 
-[live-reload](https://github.com/femave/live-server-reload)
-- Url to import or install: https://github.com/femave/live-server-reload
+---
