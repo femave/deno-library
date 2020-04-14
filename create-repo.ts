@@ -7,13 +7,13 @@ export default async function createRepo (branchId: string) {
     const checkoutBranch = ['git', 'checkout', '-b', `feature_${branchId}`];
     
     ensureDirSync('/deno-library');
-    const clone = Deno.run({args: [...cloneRepo]});
+    const clone = Deno.run({cmd: [...cloneRepo]});
     if ((await clone.status()).code !== 0) {
         console.log(`Git clone failed`);
         Deno.exit();
     }
     Deno.chdir(entryToRepo);
-    const checkout = Deno.run({args: [...checkoutBranch]}); 
+    const checkout = Deno.run({cmd: [...checkoutBranch]}); 
     if ((await checkout.status()).code !== 0) {
         console.log(`Git checkout failed`);
         Deno.exit();
